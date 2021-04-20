@@ -68,11 +68,14 @@ int binary_search(int a[f],int l,int r,int n){
 
 int main()
 {
+clock_t start,end;
 
 
     int n,r,res,choice;
-    printf("en");
+    printf("enter how many numbers\n");
     scanf("%d",&f);
+while(f!=-1) {
+ double time_spent = 0.0;
 
     for(int i=0;i<f;i++)
     {
@@ -95,14 +98,16 @@ int main()
   {
       case 1: printf("Enter value to be searched\n");
                scanf("%d",&n);
-               clock_t begin = clock();
+              start=clock();
               res=linear_search(num,n);
+end=clock();
+
               if(res==-1)
               printf("Element not found in linear search\n");
               else
               printf("Element found at linear search %d\n",res);
-              clock_t end = clock();
-time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+            
+time_spent += (double)(end -start) / CLOCKS_PER_SEC;
 
     printf("Time elpased is %f seconds", time_spent);
               break;
@@ -110,18 +115,21 @@ time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
 
      case 2:printf("Enter value to be searched\n");
                scanf("%d",&n);
-                begin = clock();
+                start=clock();
               res=binary_search(num,0,f-1,n);
+end=clock();
               if(res==-1)
               printf("Element not found in binary search\n");
               else
               printf("Element found at binary search %d\n",res);
-              end = clock();
-time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
+            
+time_spent += (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("Time elpased is %f seconds", time_spent);
+    printf("Time elpased is %f seconds\n", time_spent);
               break;
   }
-
+printf("\nenter how may numbers\n");
+    scanf("%d",&f); 
+}
 
 }
